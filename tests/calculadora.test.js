@@ -1,11 +1,26 @@
-test("nome do teste", () => {
-  console.log("esta função está sendo chamada?");
+const calculadora = require("../models/calculadora");
+
+test("1 + 1 == 2", () => {
+  const resultado = calculadora.somar(1, 1);
+  expect(resultado).toBe(2);
 });
 
-test("outro teste", () => {
-  console.log("esta função está sendo chamada 2?");
+test("5 + 100 == 105", () => {
+  const resultado = calculadora.somar(5, 100);
+  expect(resultado).toBe(105);
 });
 
-test("espero que 1 seja 1", () => {
-  expect(1).toBe(1);
+test("'banana' + 100 == 'Erro'", () => {
+  const resultado = calculadora.somar("banana", 100);
+  expect(resultado).toBe("Erro");
+});
+
+test("5 + 'banana' == 'Erro'", () => {
+  const resultado = calculadora.somar(5, "banana");
+  expect(resultado).toBe("Erro");
+});
+
+test("5 / 0 == 'Erro'", () => {
+  const resultado = calculadora.dividir(5, 0);
+  expect(resultado).toBe("Erro");
 });
