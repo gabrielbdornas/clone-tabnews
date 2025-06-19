@@ -40,3 +40,15 @@
   - Utilizar o protocolo tcp tem custo, pois como ele garante que toda informação chegará do outro lado a transmissão pode ficar mais lenta.
   - Transmissão de zoom e teams é um exemplo de onde o TCP pode não ser necessário. Video chamadas utilizam o protocolo udp. [Video mostrando diferenças protocolos tcp e udc](https://www.youtube.com/watch?v=ZEEBsq3eQmg)
   - Vamos então ligar o servidor utilizando o next. Deveríamos rodar utilizando `next dev`, mas o next não está instalado globalmente na máquina. Ele esté instalado no node, então tenho que usar o `npm` para rodá-lo. Para isso, incluo este comando como um script no arquivo `package.json`. Assim rodo `npm run dev`.
+
+- 4 - Página Inicial:
+
+  - Next usa um sistema chamado File-Based Routing, ou roteamente baseado em arquivos.
+  - Agora o Next aceita os arquivos na pasta `pages` ou `ap`. A opção foi para a pasta `pages`, usando quando da criação do sistema.
+  - No futuro podemos pensar em mudar para `ap`.
+  - `index.js` nada mais é do que o índice das nossas páginas. Indice (ou index.md) eram como as páginas funcionavam no passado.
+  - No Nest qualquer pasta que tenha um arquivo `index.js` ou `jsx` vira uma rota pública. No nosso caso nosso `index.js` na raiz de `pages` virará a nossa Home.
+  - Agora dará para ver a linha que separa o Next do React. Next é que entrega a conexão do mundo lá fora (as rotas) para os components React que serão entregues.
+  - Após criar o arquivo `pages/index.js` rodamos novamente o comando `npm run dev` e o servidor já está no ar.
+  - Detalhe que o Codespaces deixa acessarmos este servidor em um link online. Ele mesmo pergunta se não queremos abrir o resultado do servidor no navegador.
+  - A aba no navegador que foi aberta, por padrão só está disponível para mim, mas se eu clicar na anteninha (barra no pé do editor) ele abre a opção de portas (opção ao lado do terminal também). Alí posso mudar a visibilidade para Public, assim todos tem acesso àquela página
