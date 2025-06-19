@@ -17,6 +17,7 @@
   - Arquivo `.nvmrc` precisa de uma linha em branco no final. Após a definição da versão `lts/hydrogen`. Com este arquivo bastará rodar `nvm` install e ele fará toda mágica de instalação para nós. Não sei se o Python tem este tipo de mágica.
 
 - A primeira parede:
+
   - Usando `next.js`, que turbina o `react` como se permitindo rodar a parte de backend do sistema. Veja a resposa [chatGPT].
   - `next.js` possibilita uma das melhoras integrações Framework / Web Host. Colocar um site no ar (back e front) com esta ferramenta nunca foi tão fácil.
   - `next.js` é desenvolvido pela vercel.com, o que faz o combo `next.js` + vercel muito bom.
@@ -27,3 +28,14 @@
   - Instala `react` e `react-dom` ambos na versão `18.2.0`. O `react-dom` é um renderizador para páginas HTML. Estes renderizadores foram dividios para facilitar o trabalho um deles, por exemplo é o react-native.
   - Só com estas 3 dependências dá para fazer muita coisa legal. Oque? Posso pensar em exemplos para escrever posts e praticar.
   - Estamos instalando as mesmas versões para evitar erros neste momento, mas no futuro os testes automatizados vão deixar a atualização de versão sempre em dia.
+
+- Protocolos e rodando o site de forma local
+  - O que é de fato um serviço WEB?
+  - Começamos por protocolos, existem vários como HTTP, FTP, SMTP, cada um com seu objetivo.
+  - Protocolo é apenas um acordo, um combinado entre a parte que envia e a parte que recebe (partes que estão tentando se comunicar).
+  - Posso dizer que um protocolo é o mesmo que uma API? Se não, qual a diferença?
+  - Qual problema de erros de informação?
+  - Um protocolo é montado sobre o outro, por exemplo o HTTP é montado em cima do TCP (que garante que as informações chegarão do outro lado), que usando o IP (internet protocol) para tramitar tudo pelos tuneis da internet.
+  - Utilizar o protocolo tcp tem custo, pois como ele garante que toda informação chegará do outro lado a transmissão pode ficar mais lenta.
+  - Transmissão de zoom e teams é um exemplo de onde o TCP pode não ser necessário. Video chamadas utilizam o protocolo udp. [Video mostrando diferenças protocolos tcp e udc](https://www.youtube.com/watch?v=ZEEBsq3eQmg)
+  - Vamos então ligar o servidor utilizando o next. Deveríamos rodar utilizando `next dev`, mas o next não está instalado globalmente na máquina. Ele esté instalado no node, então tenho que usar o `npm` para rodá-lo. Para isso, incluo este comando como um script no arquivo `package.json`. Assim rodo `npm run dev`.
