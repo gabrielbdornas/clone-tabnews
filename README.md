@@ -1,6 +1,6 @@
 # Clone Tabnews
 
-- A fundação:
+- 1 - A fundação:
 
   - Começamos criando um repositório GitHub.
   - Neste repositório criamos um Codespaces.
@@ -16,7 +16,7 @@
   - Para "documentar" no projeto o que estamos fazendo é bom criar o arquivo `.nvmrc`. O `rc` aqui no final significa run commands, e podemos encontrar este sufixo em vários outros lugares como em `bashrc`. Isso é uma convemção criada para arquivos que possuem instruções para inicialização.
   - Arquivo `.nvmrc` precisa de uma linha em branco no final. Após a definição da versão `lts/hydrogen`. Com este arquivo bastará rodar `nvm` install e ele fará toda mágica de instalação para nós. Não sei se o Python tem este tipo de mágica.
 
-- A primeira parede:
+- 2 - A primeira parede:
 
   - Usando `next.js`, que turbina o `react` como se permitindo rodar a parte de backend do sistema. Veja a resposa [chatGPT].
   - `next.js` possibilita uma das melhoras integrações Framework / Web Host. Colocar um site no ar (back e front) com esta ferramenta nunca foi tão fácil.
@@ -29,7 +29,8 @@
   - Só com estas 3 dependências dá para fazer muita coisa legal. Oque? Posso pensar em exemplos para escrever posts e praticar.
   - Estamos instalando as mesmas versões para evitar erros neste momento, mas no futuro os testes automatizados vão deixar a atualização de versão sempre em dia.
 
-- Protocolos e rodando o site de forma local
+- 3 - Protocolos e rodando o site de forma local
+
   - O que é de fato um serviço WEB?
   - Começamos por protocolos, existem vários como HTTP, FTP, SMTP, cada um com seu objetivo.
   - Protocolo é apenas um acordo, um combinado entre a parte que envia e a parte que recebe (partes que estão tentando se comunicar).
