@@ -8,26 +8,54 @@
   - `nvm` significa Node Version Manager.
   - Em [pesquisa no chatGPT](https://chatgpt.com/share/6853592f-8c1c-8003-8c3b-cc8d62616bfd) descobri que `node.js` é simplesmente um motor para rodar Javascript fora do navegador.
   - `nvm ls` (de listar) me mostra as versões atuais disponíveis do node.
-  - Sugestão de utilizar a versão `lts/hydrogen` (v18.20.8).
-  - Se por algum motivo a instalação desta versão não desse certo isntalar instalar a próxima lts que seria a `lts/iron`, mas não foi necessário.
-  - Versões mais atuais da mesma lts tem compatibilidade umas com as outras.
-  - Quando desligar este Codespaces a versão anterior irá retornar e o comando `nvm alias default lts/hydrogen` resolveu o problema. Tudo indica que este comando `nvm alias default <versao>` parace configurar a versão globalmente. Como esta máquina não rodará mais nenhum projeto, acredito que não será um problema, mas para um ambiente local (minha máquina, por exemplo), acredito ser bom descobrir o comando equivalente que mudará somente o local.
   - Sempre usar a flag `--help` para descobrir como os comandos funcionam.
-  - Para "documentar" no projeto o que estamos fazendo é bom criar o arquivo `.nvmrc`. O `rc` aqui no final significa run commands, e podemos encontrar este sufixo em vários outros lugares como em `bashrc`. Isso é uma convemção criada para arquivos que possuem instruções para inicialização.
-  - Arquivo `.nvmrc` precisa de uma linha em branco no final. Após a definição da versão `lts/hydrogen`. Com este arquivo bastará rodar `nvm` install e ele fará toda mágica de instalação para nós. Não sei se o Python tem este tipo de mágica.
+  - Sugestão de utilizar a versão `lts/hydrogen` (v18.20.8).
+  - Se por algum motivo a instalação desta versão não desse certo instalar a próxima lts que seria a `lts/iron`, mas não foi necessário.
+  - Versões mais atuais da mesma lts tem compatibilidade umas com as outras. Sendo incluídos apenas `patch` com correções de vulnerabilidades.
+  - Quando desligar este Codespaces a versão anterior irá retornar e o comando `nvm alias default lts/hydrogen` resolveu o problema. Tudo indica que este comando `nvm alias default <versao>` parace configurar a versão globalmente. Como esta máquina não rodará mais nenhum projeto, acredito que não será um problema, mas para um ambiente local (minha máquina, por exemplo), acredito ser bom descobrir o comando equivalente que mudará somente o local.
+  - Para "documentar" no projeto o que estamos fazendo é bom criar o arquivo `.nvmrc`.
+
+    - No arquivo `.nvmrc` incluimos na primeira linha a definição da versão `lts/hydrogen`. Este arquivo precisa de uma linha em branco no final.
+    - Sobre definir a versão node global ou localmente foi sanada quando clonei o repositório para minha máquina. Ao `cd` dentro do projeto clonado, o `nvm` já baixou a versão necessária para o projeto e definiu que ela seria utilizado no mesmo:
+
+      ```
+      ➜  gabrielbdornas cd clone-tabnews
+      Found '/home/gabrielbdornas/code/gabrielbdornas/clone-tabnews/.nvmrc' with version <lts/hydrogen>
+      Downloading and installing node v18.20.8...
+      Downloading https://nodejs.org/dist/v18.20.8/node-v18.20.8-linux-x64.tar.xz...
+      ####################################################################################################################################################### 100.0%
+      Computing checksum with sha256sum
+      Checksums matched!
+      Now using node v18.20.8 (npm v10.8.2)
+      ➜  clone-tabnews git:(main) node --version
+      v18.20.8
+      ➜  clone-tabnews git:(main) cd ..
+      ➜  gabrielbdornas node --version
+      v20.19.2
+      ```
+
+      - Repare que fora do projeto a versão node configurada é outra.
+
+    - Com este arquivo, bastará rodar `nvm install` e ele fará toda mágica de instalação para nós. Não sei se o Python tem este tipo de mágica. Acredito que foi esse comando que foi chamado quando clonei e `cd` para dentro do projeto em minha máquina.
+    - O `rc` aqui no final significa run commands, e podemos encontrar este sufixo em vários outros lugares como em `bashrc`. Isso é uma convenção criada para arquivos que possuem instruções para inicialização.
 
 - 2 - A primeira parede:
 
-  - Usando `next.js`, que turbina o `react` como se permitindo rodar a parte de backend do sistema. Veja a resposa [chatGPT].
+  - Usando `next.js`, que turbina o `react` como se permitindo rodar a parte de backend do sistema. Veja a resposa [chatGPT](https://chatgpt.com/share/68536101-21f0-8003-a04a-078b4032ad28).
   - `next.js` possibilita uma das melhoras integrações Framework / Web Host. Colocar um site no ar (back e front) com esta ferramenta nunca foi tão fácil.
   - `next.js` é desenvolvido pela vercel.com, o que faz o combo `next.js` + vercel muito bom.
   - Criamos o arquivo `package.json` que Felipe classificou como arquivo Manifesto, ou responsável por listar as dependências do projeto.
   - `package.json` é ótimo para permitir que teremos as mesmas versões ao replicar o sistema (no servidor de produção, por exemplo).
   - Para iniciar a criação deste arquivo basta rodar `npm init`.
   - Para instalar pacotes basta `npm install package-name@version`, como em `npm install next@13.1.6`.
-  - Instala `react` e `react-dom` ambos na versão `18.2.0`. O `react-dom` é um renderizador para páginas HTML. Estes renderizadores foram dividios para facilitar o trabalho um deles, por exemplo é o react-native.
+  - Instala `react` e `react-dom` ambos na versão `18.2.0`. O `react-dom` é um renderizador para páginas HTML. Estes renderizadores foram dividios para facilitar o trabalho de front. Um deles, por exemplo, é o react-native.
   - Só com estas 3 dependências dá para fazer muita coisa legal. Oque? Posso pensar em exemplos para escrever posts e praticar.
   - Estamos instalando as mesmas versões para evitar erros neste momento, mas no futuro os testes automatizados vão deixar a atualização de versão sempre em dia.
+
+- 2.1 - Recapitulando:
+
+  - `nvm`: Node version manager: Gerencia as versões do node. Para iniciar um projeto em outra máquina necessário rodar `nvm install`. Como vimos o próprio `nvm` faz isso ao `cd` dentro de um projeto clonado que tenha o arquivo `nvmrc`. Ou ele usa este arquivo para `run commands` de instalação da versão necessária ao iniciar o projeto.
+  - `npm`: Node package manager: Gerencia a instalação de pacotes. Ou seja, após definirmos a versãod do node que utilizaremos com `nvm install` devemos instalar os pacotes compatíveis com essa já utilizadas no projeto. Para isso rodamos o `npm install`. Isso criará uma pasta `node_modules` em nosso projeto (a ser incluído no `.gitignore`).
 
 - 3 - Protocolos e rodando o site de forma local
 
