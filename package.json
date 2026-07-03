@@ -1,0 +1,11 @@
+{
+  "name": "clone-tabnews",
+  "version": "1.0.0",
+  "description": "> Projeto em estágio inicial. Esta documentação é mínima e vai evoluir junto com o projeto.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT"
+}
