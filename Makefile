@@ -3,6 +3,9 @@ phony: start stop clean image
 start:
 	docker compose up -d
 
+exec:
+	docker compose exec app bash
+
 stop:
 	docker compose stop
 
