@@ -6,9 +6,9 @@ services:
         UID: ${HOST_UID:-1000}
         GID: ${HOST_GID:-1000}
     container_name: clone-tabnews-node-18
-    working_dir: /app
+    working_dir: /home/node/app
     volumes:
-      - .:/app
+      - .:/home/node/app
     ports:
       - "3000:3000"
     stdin_open: true

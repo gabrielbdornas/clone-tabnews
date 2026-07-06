@@ -7,7 +7,7 @@ RUN groupmod -g "${GID}" node \
  && usermod -u "${UID}" -g "${GID}" node \
  && chown -R "${UID}:${GID}" /home/node
 
-WORKDIR /app
+WORKDIR /home/node/app
 USER node
 
 CMD ["sleep", "infinity"]
