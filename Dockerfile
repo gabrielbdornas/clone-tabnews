@@ -10,4 +10,4 @@ RUN groupmod -g "${GID}" node \
 WORKDIR /home/node/app
 USER node
 
-CMD ["sleep", "infinity"]
+CMD ["npm", "run", "dev"]
